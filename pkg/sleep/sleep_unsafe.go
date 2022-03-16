@@ -282,7 +282,7 @@ func (s *Sleeper) Fetch(block bool) *Waker {
 //
 // N.B. Like Fetch, this method is *not* thread-safe. This will also yield the current
 //      P to the next goroutine, avoiding associated scheduled overhead.
-//+checkescapes:all
+// +checkescape:all
 //go:nosplit
 func (s *Sleeper) AssertAndFetch(n *Waker) *Waker {
 	n.assert(false /* wakep */)
